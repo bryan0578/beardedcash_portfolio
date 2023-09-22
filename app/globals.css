@@ -215,9 +215,12 @@
 .gradient_blue-purple {
   background: linear-gradient(90deg, #4ca5ff 0%, #b573f8 100%);
 }
+.gradient_sea {
+  background: linear-gradient(45deg, #6f37e9 15%,#cd1cfd 100%)
+}
 
 .text-gradient_blue {
-  background: linear-gradient(90deg, #4c73ff 2.34%, #389bff 100.78%);
+  background: linear-gradient(90deg, #4c73ff 0%, #389bff 100.78%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -237,7 +240,7 @@
 }
 
 .text-gradient_sea {
-  background: linear-gradient(90deg, #04fefe 0%, #5a62ff 45%,#cd1cfd 100%);
+  background: linear-gradient(90deg, #6f37e9 15%,#cd1cfd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
