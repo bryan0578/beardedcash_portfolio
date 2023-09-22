@@ -44,7 +44,7 @@ const schema = {
       type: 'string',
       validation: (Rule: any) => Rule.required(),
       options: {
-        list: ['frontend', 'backend', 'fullstack', 'mobile', 'next 13', 'react', 'sapui5', 'salesforce', 'others']
+        list: ['frontend', 'backend', 'fullstack', 'mobile']
       }
     }
   ]

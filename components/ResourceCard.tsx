@@ -22,7 +22,7 @@ interface Props {
 const ResourceCard = ({ id, title, description, image, views, slug }: Props) => {
   return (
     <Card className="w-full max-w-fit border-0 !bg-transparent sm:max-w-[356px]">
-        <Link id="project" href={`/resource/${id}`}>
+        <Link id="project" href={`/`}>
             <CardHeader className="flex-center flex-col gap-2.5 !p-0">
                 <div className="h-fit w-full">
                     <Image 
@@ -34,7 +34,7 @@ const ResourceCard = ({ id, title, description, image, views, slug }: Props) => 
                     />
                 </div>
                 <CardTitle className="text-white paragraph-semibold line-clamp-1 w-full text-left">{title}</CardTitle>
-                <CardDescription className="text-white line-clamp-1 w-full text-left">{description}</CardDescription>
+                <CardDescription className="text-white w-full text-left">{description}</CardDescription>
             </CardHeader>
         </Link>
         <CardContent className="flex-between mt-4 p-0">
@@ -45,14 +45,11 @@ const ResourceCard = ({ id, title, description, image, views, slug }: Props) => 
                 />
                 {views}
             </div>
-            <Link href={`/resource/${id}`} className="flex-center text-gradient_purple-blue body-semibold gap-1.5">
-                Download Now 
+            <Link href={`/`} className="flex-center text-gradient_sea body-semibold gap-1.5">
+                View Github
                 <Image src="/arrow-blue.svg" width={13} height={0} alt="arrow" />
             </Link>
         </CardContent>
-        <CardFooter>
-            <p>Card Footer</p>
-        </CardFooter>
     </Card>
 
   )

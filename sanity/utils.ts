@@ -15,6 +15,8 @@ export function buildQuery(params: BuildQueryParams) {
 
   if (query) conditions.push(`title match "*${query}*"`);
 
+  if (query) conditions.push(`description match "*${query}*"`);
+
   if (category && category !== "all") {
     conditions.push(`category == "${category}"`);
   }
