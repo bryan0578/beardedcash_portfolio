@@ -7,6 +7,10 @@ import { useState } from 'react'
 
 const navLinks = [
     {
+        id: "#about",
+        title: "about",
+    },
+    {
         id: "#projects",
         title: "projects",
     },
@@ -15,16 +19,12 @@ const navLinks = [
         title: "experience",
     },
     {
-        id: "#about",
-        title: "about",
+        id: "#blog",
+        title: "blog",
     },
     {
         id: "#contact",
         title: "contact",
-    },
-    {
-        id: "#blog",
-        title: "blog",
     },
 ]
 const Navbar = () => {

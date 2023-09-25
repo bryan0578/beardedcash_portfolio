@@ -30,7 +30,7 @@ module.exports = {
         inter: ["Inter", "sans-serif"],
       },
       colors: {
-        primary: "#2190FF",
+        primary: "#FF6601",
         black: {
           DEFAULT: "#000",
           100: "#0D1117",
