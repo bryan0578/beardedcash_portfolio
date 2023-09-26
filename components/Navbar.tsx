@@ -49,13 +49,13 @@ const Navbar = () => {
             {navLinks.map((nav) => (
                 <li key={nav.id}
                   className={`${
-                    active === nav.title ? "text-gradient_blue-purple" : "text-white-800"
-                  } !font-bold body-text capitalize`}
+                    active === nav.title ? "text-gradient_primary" : "text-white-800"
+                  } !font-bold body-text capitalize hover:text-primary transition ease-in`}
                   onClick={() => {
                     setActive(nav.title);
                   }}
                 >
-                  <Link href={`#${nav.id}`}>{nav.title}</Link>
+                  <Link href={`${nav.id}`}>{nav.title}</Link>
                 </li>
               ))}
             </ul>
@@ -70,7 +70,7 @@ const Navbar = () => {
                                 setActive(nav.title);
                             }}
                         >
-                            <Link href={`#${nav.id}`}>{nav.title}</Link>
+                            
                         </li>
                     ))}
                 </ul>

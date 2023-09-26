@@ -219,6 +219,14 @@
   background: linear-gradient(45deg, #6f37e9 15%,#cd1cfd 100%)
 }
 
+.text-gradient_primary {
+  background: linear-gradient(90deg, #FF6601 0%, #FFA533 100.78%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+} 
+
 .text-gradient_blue {
   background: linear-gradient(90deg, #4c73ff 0%, #389bff 100.78%);
   -webkit-background-clip: text;
@@ -227,6 +235,9 @@
   text-fill-color: transparent;
 }
 
+.gradient_primary {
+  background: linear-gradient(90deg, #FF6601, #FFA533);
+}
 .gradient_purple {
   background: linear-gradient(90deg, #854cff 0%, #b573f8 100%);
 }

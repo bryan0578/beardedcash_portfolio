@@ -1,6 +1,7 @@
 import About from '@/components/About';
 import Filters from '@/components/Filters'
 import Header from '@/components/Header';
+import Hero from '@/components/Hero';
 import ResourceCard from '@/components/ResourceCard'
 import SearchForm from '@/components/SearchForm'
 import { getResources, getResourcesPlaylist } from '@/sanity/actions'
@@ -25,9 +26,12 @@ const Page = async ({ searchParams }: Props) => {
   return (
     <main className="flex-center paddings mx-auto w-full max-w-screen-2xl flex-col">
       <section className="nav-padding w-full">
-        <About />
+        <Hero />
       </section>
       <section className="nav-padding w-full">
+        <About />
+      </section>
+      <section id="projects" className="nav-padding w-full mb-16">
         <div className="flex-center relative w-full flex-col rounded-xl text-center">
           <h1 className="sm:heading1 heading2 mb-6 text-center text-white">Projects</h1>
         </div>
@@ -42,7 +46,7 @@ const Page = async ({ searchParams }: Props) => {
       </section>
       <Filters />
       {(searchParams?.query || searchParams?.category) && (
-        <section className="flex-center mt-6 w-full flex-col sm:mt-20">
+        <section className="flex-center mt-6 w-full flex-col sm:mt-8">
           <Header
             query={searchParams?.query || ''}
             category={searchParams?.category || ''}
@@ -69,7 +73,7 @@ const Page = async ({ searchParams }: Props) => {
       )}
       
       {resourcesPlaylist.map((item: any) => (
-        <section key={item._id} className="flex-center mt-6 w-full flex-col sm:mt-20">
+        <section key={item._id} className="flex-center mt-6 w-full flex-col sm:mt-8">
           <h1 className="heading3 self-start text-white-800">{item.title}</h1>
           <div className="mt-12 flex w-full flex-wrap justify-center gap-16 sm:justify-start">
             {item.resources.map((resource: any) => (

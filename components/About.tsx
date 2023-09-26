@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useTransition, useState, useRef } from 'react';
+import React, { useTransition, useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { Progress } from "@/components/ui/progress"
 //simport { motion, useInView } from 'framer-motion';
@@ -56,10 +56,35 @@ const TAB_DATA = [
         )
     }
 ]
-    
+const skills = [
+    {
+        title: 'Design Tools',
+        value: '80'
+    },
+    {
+        title: 'Front-End',
+        value: '80'
+    },
+    {
+        title: 'Back-End',
+        value: '30'
+    },
+    {
+        title: 'Full Stack',
+        value: '66'
+    },
+    {
+        title: 'SAPUI5',
+        value: '75'
+    },
+    {
+        title: 'Salesforce UI',
+        value: '80'
+    },
+]    
 
 const About = () => {
-    // const [tab, setTab] = useState("skills");
+    
     // const [isPending, startTransition] = useTransition();
     // const ref = useRef(null);
     // const isInView = useInView(ref, { once: true });
@@ -78,32 +103,7 @@ const About = () => {
     //   initial: { y:0, opacity:0 },
     //   animate: { y:0, opacity:1 },
     // }
-    const skills = [
-        {
-            title: 'Design Tools',
-            value: '80'
-        },
-        {
-            title: 'Front-End',
-            value: '80'
-        },
-        {
-            title: 'Back-End',
-            value: '30'
-        },
-        {
-            title: 'Full Stack',
-            value: '66'
-        },
-        {
-            title: 'SAPUI5',
-            value: '75'
-        },
-        {
-            title: 'Salesforce UI',
-            value: '80'
-        },
-    ]
+    
   return (
     <section id="about" className='nav-padding w-full'>
         <div className='flex-between gap-8 relative min-h-[274px] w-full flex-col lg:flex-row rounded-xl text-left'>
@@ -125,7 +125,7 @@ const About = () => {
             </div>
         </div>
 
-        <div className='flex gap-40 w-full flex-col lg:flex-row text-left mt-24 mb-24'>
+        <div className='flex gap-8 w-full flex-col lg:flex-row text-left mt-24 mb-24'>
             <div className="w-full flex-center lg:flex-start">
                 <div className='flex flex-col w-full'>
                     <h2 className='base-bold !font-extrabold mb-4 text-center lg:text-left'>A Little More About Me</h2>
@@ -146,7 +146,7 @@ const About = () => {
                         <ul key={index}>
                             <li>
                                 <p className='base-text font-semibold text-white-100 mb-2'>{skill.title}</p>
-                                <Progress value={skill.value} className='h-[10px] bg-primary/20 mb-4' />
+                                <Progress value={skill.value} className='h-[10px] bg-primary/20 mb-6 transition ease-in-out' />
                             </li>
                         </ul> 
                     ))}
@@ -156,7 +156,7 @@ const About = () => {
         </div>
         </div>
         <div className="w-full">
-            <div className='flex flex-col w-full px-24'>
+            <div className='flex flex-col w-full px-0 lg:px-28'>
                 <h1 className='heading2 lg:heading1 !font-extrabold mb-6 text-center'>Fun FAQs About Me</h1>
                 <Questions />
             </div>
