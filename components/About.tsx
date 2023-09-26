@@ -8,54 +8,9 @@ import { Progress } from "@/components/ui/progress"
 
 // import TabButton from './TabButton';
 import Questions from '@/components/Questions';
+import Link from 'next/link';
+import { getFaqs } from '@/sanity/actions';
 
-const TAB_DATA = [
-    {
-        title: "Skills",
-        id: "skills",
-        content: (
-            <ul>
-                <li>Node.js</li>
-                <li>React</li>
-                <li>React Native</li>
-                <li>SAP Business Technology Platform</li>
-                <li>SAPUI5</li>
-                <li>Fiori</li>
-                <li>Salesforce UI Development</li>
-                <li>Apex</li>
-                <li>Lightning Components</li>
-                <li>Aura Components</li>
-                <li>JavaScript</li>
-                <li>HTML5</li>
-                <li>CSS3</li>
-                <li>TailwindCSS</li>
-                
-            </ul>
-        )
-    },
-    {
-        title: "Education",
-        id: "education",
-        content: (
-            <ul>
-                <li>Full Sail University</li>
-                <li>University of Phoenix</li>
-                <li>Salesforce Trailblazer</li>
-                <li>SAP Learning Hub</li>
-            </ul>
-        )
-    },
-    {
-        title: "Certifications",
-        id: "certifications",
-        content: (
-            <ul>
-                <li>HTML5</li>
-                <li>CSS3</li>
-            </ul>
-        )
-    }
-]
 const skills = [
     {
         title: 'Design Tools',
@@ -84,26 +39,7 @@ const skills = [
 ]    
 
 const About = () => {
-    
-    // const [isPending, startTransition] = useTransition();
-    // const ref = useRef(null);
-    // const isInView = useInView(ref, { once: true });
 
-    // const handleTabChange =(id) => {
-    //     startTransition(() => {
-    //         setTab(id);
-    //     })
-    // }
-    // const cardVariants = {
-    //     initial: { y:-50, opacity:0 },
-    //     animate: { y:0, opacity:1 },
-    // }
-
-    // const textVariant = {
-    //   initial: { y:0, opacity:0 },
-    //   animate: { y:0, opacity:1 },
-    // }
-    
   return (
     <section id="about" className='nav-padding w-full'>
         <div className='flex-between gap-8 relative min-h-[274px] w-full flex-col lg:flex-row rounded-xl text-left'>
@@ -122,6 +58,21 @@ const About = () => {
                 <p className='text-base lg:text-lg text-slate-300 text-center lg:text-left'>I’m also a full-stack developer, although I do love coding front-end more 
                 (that’s the designer in me). I’m very dedicated and passionate about coding, I love learning new technologies, which is very important in the world of 
                 technology as it is always growing. </p>
+                <ul className='flex flex-row flex-center lg:flex-start gap-8 mt-8'>
+                    <li>
+                        <Link href="https://www.linkedin.com/in/cashbryan/" target="_blank"><Image src="/linkedin.svg" width={50} height={50} alt="LinkedIn"/></Link>
+                    </li>
+                    <li>
+                        <Link href="https://github.com/bryan0578" target="_blank"><Image src="/github.svg" width={50} height={50} alt="Github"/></Link>
+                        
+                    </li>
+                    <li>
+                        <Link href="https://twitter.com/beardedcash" target="_blank"><Image src="/twitter.svg" width={50} height={50} alt="Twitter"/></Link>
+                    </li>
+                    <li>
+                        <Link href="mailto:bryan@cashbryan.com"><Image src="/inbox.svg" width={50} height={50} alt="Email"/></Link>
+                    </li>
+                </ul>
             </div>
         </div>
 
@@ -139,29 +90,22 @@ const About = () => {
                 </div>
             </div>
             <div className="w-full">
-            <div className='flex flex-col w-full'>
-                <h2 className='base-bold !font-extrabold mb-4 text-center lg:text-left'>Skills</h2>
-                <div>
-                    {skills.map((skill: any, index)=> (
-                        <ul key={index}>
-                            <li>
-                                <p className='base-text font-semibold text-white-100 mb-2'>{skill.title}</p>
-                                <Progress value={skill.value} className='h-[10px] bg-primary/20 mb-6 transition ease-in-out' />
-                            </li>
-                        </ul> 
-                    ))}
-                    
+                <div className='flex flex-col w-full'>
+                    <h2 className='base-bold !font-extrabold mb-4 text-center lg:text-left'>Skills</h2>
+                    <div>
+                        {skills.map((skill: any, index)=> (
+                            <ul key={index}>
+                                <li>
+                                    <p className='base-text font-semibold text-white-100 mb-2'>{skill.title}</p>
+                                    <Progress value={skill.value} className='h-[10px] bg-primary/20 mb-6 transition ease-in-out' />
+                                </li>
+                            </ul> 
+                        ))}
+                        
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
-        <div className="w-full">
-            <div className='flex flex-col w-full px-0 lg:px-28'>
-                <h1 className='sm:heading1 heading3 !font-extrabold mb-6 text-center'>Fun FAQs About Me</h1>
-                <Questions />
-            </div>
-        </div>
-        {/* <SearchForm /> */}
     </section>
     
   )

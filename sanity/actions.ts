@@ -57,3 +57,19 @@ export const getResources = async (params: GetResourcesParams) => {
         console.log(error);
     }
 }
+
+export const getFaqs = async () => {
+    try {
+        const faqs = await readClient.fetch(
+            groq`*[_type == "faqs"]{
+                _id,
+                title,
+                answer
+            }`
+        );
+
+        return faqs;
+    } catch (error) {
+        console.log(error);
+    }
+}

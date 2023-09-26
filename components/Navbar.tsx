@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const navLinks = [
     {
@@ -30,6 +30,23 @@ const navLinks = [
 const Navbar = () => {
     const [active, setActive] = useState("");
     const [toggle, setToggle] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            if (scrollTop > 100) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
   return (
     <nav className='flex-center fixed top-0 z-50 w-full border-b-2 border-black-200 bg-black-100 py-7 text-white'>
         <div className='flex-between mx-auto w-full max-w-screen-2xl px-6 xs:px-8 sm:px-16'>
@@ -54,8 +71,9 @@ const Navbar = () => {
                   onClick={() => {
                     setActive(nav.title);
                   }}
+                  
                 >
-                  <Link href={`${nav.id}`}>{nav.title}</Link>
+                  <Link href={`${nav.id}`} scroll={true}>{nav.title}</Link>
                 </li>
               ))}
             </ul>

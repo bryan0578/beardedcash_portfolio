@@ -1,18 +1,19 @@
 import Image from 'next/image'
 import React from 'react'
 import { Button } from './ui/button'
+import Link from 'next/link'
 
 const Hero = () => {
   return (
     <div className='flex-center w-full flex-col lg:flex-row rounded-xl text-left mt-[100px] mb-[100px]'>
         
-        <div className='flex-center lg:flex lg:my-auto flex-col w-full text-left mb-12'>
+        <div className='flex-center lg:flex lg:my-auto flex-col w-full text-left mt-12 order-last lg:order-first'>
             <h1 className='sm:heading2 heading3 !font-extrabold mb-4 text-center lg:text-left text-white-200'>Hello I'm Bryan Cash.</h1>
             <p className='flex-start text-base lg:text-lg text-slate-300 text-center mb-6'>
             I design and develop responsive web applications
             </p>
             <div className='flex-center lg:flex w-full lg:w-[50%]'>
-            <Button className='rounded-full px-10'>Learn More</Button>
+            <Button className='rounded-full px-10'><Link href="/#about">Learn More</Link></Button>
             </div>
         </div>
         <div className="w-full flex-center lg:flex-end">

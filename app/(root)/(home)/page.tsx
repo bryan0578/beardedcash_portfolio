@@ -1,10 +1,13 @@
+
 import About from '@/components/About';
 import Filters from '@/components/Filters'
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
+import Questions from '@/components/Questions';
 import ResourceCard from '@/components/ResourceCard'
 import SearchForm from '@/components/SearchForm'
-import { getResources, getResourcesPlaylist } from '@/sanity/actions'
+import { getFaqs, getResources, getResourcesPlaylist } from '@/sanity/actions'
+
 
 export const revalidate = 900;
 
@@ -20,28 +23,39 @@ const Page = async ({ searchParams }: Props) => {
   })
 
   const resourcesPlaylist = await getResourcesPlaylist();
+  const faqs = await getFaqs();
   
   console.log(resourcesPlaylist)
 
   return (
     <main className="flex-center paddings mx-auto w-full max-w-screen-2xl flex-col">
+      // *** Hero Section *** //
       <section className="nav-padding w-full">
         <Hero />
       </section>
+
       <section className="nav-padding w-full">
         <About />
+        <div className="w-full">
+          <div className='flex flex-col w-full px-0 lg:px-28'>
+              <h1 className='sm:heading1 heading3 !font-extrabold mb-6 text-center'>Fun FAQs About Me</h1>
+              <div className="w-full text-base lg:text-lg text-slate-300">
+                  {faqs.map((faq: any) => (
+                      <Questions key={faq._id} title={faq.title} answer={faq.answer} />
+                  ))}
+                  
+              </div>
+          </div>
+        </div>
       </section>
+
       <section id="projects" className="nav-padding w-full mb-16">
         <div className="flex-center relative w-full flex-col rounded-xl text-center">
           <h1 className="sm:heading1 heading2 mb-6 text-center text-white">Projects</h1>
         </div>
       </section>
 
-      
       <section className="mt-6 w-full">
-        {/* <div className="flex-center relative min-h-[274px] w-full flex-col rounded-xl bg-banner bg-cover bg-center text-center">
-          <h1 className="sm:heading1 heading2 mb-6 text-center text-white">JavaScript Mastery Resources</h1>
-        </div> */}
         <SearchForm />
       </section>
       <Filters />
@@ -75,7 +89,7 @@ const Page = async ({ searchParams }: Props) => {
       {resourcesPlaylist.map((item: any) => (
         <section key={item._id} className="flex-center mt-6 w-full flex-col sm:mt-8">
           <h1 className="heading3 self-start text-white-800">{item.title}</h1>
-          <div className="mt-12 flex w-full flex-wrap justify-center gap-16 sm:justify-start">
+          <div className="mt-8 flex w-full flex-wrap justify-center gap-16 sm:justify-start">
             {item.resources.map((resource: any) => (
                 <ResourceCard 
                   key={resource._id}
@@ -90,6 +104,8 @@ const Page = async ({ searchParams }: Props) => {
           </div>
         </section>
       ))}
+
+
     </main>
   )
 }
