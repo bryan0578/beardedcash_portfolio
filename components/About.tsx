@@ -157,7 +157,7 @@ const About = () => {
         </div>
         <div className="w-full">
             <div className='flex flex-col w-full px-0 lg:px-28'>
-                <h1 className='heading2 lg:heading1 !font-extrabold mb-6 text-center'>Fun FAQs About Me</h1>
+                <h1 className='sm:heading1 heading3 !font-extrabold mb-6 text-center'>Fun FAQs About Me</h1>
                 <Questions />
             </div>
         </div>

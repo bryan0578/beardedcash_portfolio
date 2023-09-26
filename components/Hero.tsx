@@ -7,7 +7,7 @@ const Hero = () => {
     <div className='flex-center w-full flex-col lg:flex-row rounded-xl text-left mt-[100px] mb-[100px]'>
         
         <div className='flex-center lg:flex my-auto flex-col w-full text-left mb-12 lg:mb-0'>
-            <h1 className='sm:heading2 heading2 !font-extrabold mb-4 text-center lg:text-left text-white-200'>Hello I'm Bryan Cash.</h1>
+            <h1 className='sm:heading2 heading3 !font-extrabold mb-4 text-center lg:text-left text-white-200'>Hello I'm Bryan Cash.</h1>
             <p className='flex-start text-base lg:text-lg text-slate-300 text-center mb-6'>
             I design and develop responsive web applications
             </p>
