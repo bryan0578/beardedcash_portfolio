@@ -76,7 +76,7 @@ const About = () => {
                 </div>
             </div>
             <div className="lg:col-span-1">
-                <div className="w-full px-32 pt-12 lg:p-0">
+                <div className="w-full px-0 md:px-16 pt-12 lg:p-0">
                     <div className='flex flex-col w-full'>
                         <h2 className='base-bold !font-extrabold mb-4 text-center lg:text-left'>Skills</h2>
                         <div>
