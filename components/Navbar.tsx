@@ -7,16 +7,16 @@ import { useEffect, useState } from 'react'
 
 const navLinks = [
     {
+        id: "/",
+        title: "home",
+    },
+    {
         id: "#about",
         title: "about",
     },
     {
         id: "#projects",
         title: "projects",
-    },
-    {
-        id: "#experience",
-        title: "experience",
     },
     {
         id: "#blog",
@@ -28,24 +28,8 @@ const navLinks = [
     },
 ]
 const Navbar = () => {
-    const [active, setActive] = useState("");
+    const [active, setActive] = useState("home");
     const [toggle, setToggle] = useState(false);
-    const [scrolled, setScrolled] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollTop = window.scrollY;
-            if (scrollTop > 100) {
-                setScrolled(true);
-            } else {
-                setScrolled(false);
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
   return (
     <nav className='flex-center fixed top-0 z-50 w-full border-b-2 border-black-200 bg-black-100 py-7 text-white'>
@@ -82,13 +66,13 @@ const Navbar = () => {
                 <ul className='flex-start w-full py-4 px-4 flex-col gap-y-10 gap-x-3 md:gap-x-10'>
                     {navLinks.map((nav) => (
                         <li key={nav.id}
-                            className={`${active === nav.title ? "text-gradient_blue-purple" : "text-white-800"} !font-bold body-text capitalize`}
+                            className={`${active === nav.title ? "text-gradient_primary" : "text-white-800"} !font-bold body-text capitalize hover:text-primary transition ease-in`}
                             onClick={() => {
                                 setToggle(!toggle);
                                 setActive(nav.title);
                             }}
                         >
-                            
+                            <Link href={`${nav.id}`} scroll={true}>{nav.title}</Link>
                         </li>
                     ))}
                 </ul>

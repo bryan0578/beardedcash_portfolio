@@ -8,6 +8,22 @@ interface GetResourcesParams {
     page: string;
 }
 
+export const getFaqs = async () => {
+    try {
+        const faqs = await readClient.fetch(
+            groq`*[_type == "faqs"]{
+                _id,
+                title,
+                answer
+            }`
+        );
+
+        return faqs;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export const getResourcesPlaylist = async () => {
     try {
         const resources = await readClient.fetch(
@@ -53,22 +69,6 @@ export const getResources = async (params: GetResourcesParams) => {
         );
 
         return resources;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-export const getFaqs = async () => {
-    try {
-        const faqs = await readClient.fetch(
-            groq`*[_type == "faqs"]{
-                _id,
-                title,
-                answer
-            }`
-        );
-
-        return faqs;
     } catch (error) {
         console.log(error);
     }

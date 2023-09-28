@@ -50,8 +50,7 @@ export function formUrlQuery({ params, key, value, keysToRemove }: UrlQueryParam
     }
 
     return qs.stringifyUrl(
-        { url: window.location.pathname, query: currentUrl },
-        { skipNull: true }
+        { url: window.location.pathname, query: currentUrl }
     )
     
 }
