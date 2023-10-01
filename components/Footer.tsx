@@ -1,10 +1,8 @@
-"use client"
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState } from 'react'
 
 const Footer = () => {
-  const [active, setActive] = useState("home");
   return (
     <footer className='text-white-800 flex-between body-text w-full gap-y-10 border-t border-black-400 bg-black-100 px-20 py-12 max-md:flex-col'>
       <div className="flex-center">
