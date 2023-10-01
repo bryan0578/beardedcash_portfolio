@@ -24,10 +24,10 @@ const ResourceCard = ({ id, title, description, image, views, slug }: Props) => 
     <Card className="w-full max-w-fit border border-slate-700 !bg-black-200 sm:max-w-[356px]">
         <Link id="project" href={`/resource/${id}`}>
             <CardHeader className="flex-center flex-col gap-2.5 !p-0">
-                <div className="h-fit w-full">
+                <div className="w-full h-[200px]">
                     <Image 
                         src={image}
-                        className="h-full rounded-md object-cover"
+                        className="h-full rounded-lg object-cover"
                         alt={title}
                         width={384}
                         height={440}
@@ -39,15 +39,20 @@ const ResourceCard = ({ id, title, description, image, views, slug }: Props) => 
         </Link>
         <CardContent className="flex-between mt-4 p-0 px-4 pb-4">
             <div className="flex-center body-medium gap-1.5 text-white">
-                <Image 
+                {/* <Image 
                     src="/downloads.svg" width={20} height={20}
                     alt="views"
                 />
-                {views}
+                {views} */}
+                <Link href={`/resource/${id}`} className="flex-center text-gradient_primary body-semibold gap-1.5">
+                    <div className="flex-center rounded-full bg-slate-900 w-[42px] h-[42px] hover:bg-slate-600 transition ease-in-out duration-200">
+                        <Image src="/github.svg" width={28} height={28} alt="arrow" />
+                    </div>
+                    
+                </Link>
             </div>
-            <Link href={`/resource/${id}`} className="flex-center text-gradient_sea body-semibold gap-1.5">
-                View Github
-                <Image src="/arrow-blue.svg" width={13} height={0} alt="arrow" />
+            <Link href={`/resource/${id}`} className="flex-center text-gradient_primary body-semibold gap-1.5">
+                View Project
             </Link>
         </CardContent>
     </Card>

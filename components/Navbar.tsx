@@ -2,12 +2,13 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 
 import { useEffect, useState } from 'react'
 
 const navLinks = [
     {
-        id: "/",
+        id: "",
         title: "home",
     },
     {
@@ -19,7 +20,7 @@ const navLinks = [
         title: "projects",
     },
     {
-        id: "#blog",
+        id: "blog",
         title: "blog",
     },
     {
@@ -27,24 +28,32 @@ const navLinks = [
         title: "contact",
     },
 ]
+
+
+
 const Navbar = () => {
     const [active, setActive] = useState("home");
     const [toggle, setToggle] = useState(false);
-
+    
   return (
-    <nav className='flex-center fixed top-0 z-50 w-full border-b-2 border-black-200 bg-black-100 py-7 text-white'>
+    <nav className={`flex-center fixed top-0 z-50 w-full border-b-2 border-black-200 bg-black-100 py-7 text-white `}>
         <div className='flex-between mx-auto w-full max-w-screen-2xl px-6 xs:px-8 sm:px-16'>
-            <Link href="/">
-                <Image src="/BeardLogoOrange-8.svg" width={45} height={45} alt={''}/>
+            <Link href="/" className="flex-center" onClick={() => {
+                    setActive('home');
+                  }}>
+               <Image src="/BeardLogoOrange-8.svg" width={45} height={45} alt={''}/>
+               <h1 className='hidden lg:block pl-4 font-semibold'>Beardedcash Designer | Developer</h1>
             </Link>
-        
             <Image
                 src={toggle ? "/close.svg" : "/menu.svg"}
                 width={30}
                 height={30}
                 alt="Hamburger menu"
                 className='block md:hidden'
-                onClick={() => setToggle(!toggle)}
+                onClick={() => {
+                    setToggle(!toggle) 
+                    window.scrollTo(0, 0);
+                }}
             />
             <ul className='flex-center gap-x-3 max-md:hidden md:gap-x-10'>
             {navLinks.map((nav) => (
@@ -57,7 +66,7 @@ const Navbar = () => {
                   }}
                   
                 >
-                  <Link href={`${nav.id}`} scroll={true}>{nav.title}</Link>
+                  <Link href={`/${nav.id}`} scroll={true}>{nav.title}</Link>
                 </li>
               ))}
             </ul>
@@ -72,7 +81,7 @@ const Navbar = () => {
                                 setActive(nav.title);
                             }}
                         >
-                            <Link href={`${nav.id}`} scroll={true}>{nav.title}</Link>
+                            <Link href={`/${nav.id}`} scroll={true}>{nav.title}</Link>
                         </li>
                     ))}
                 </ul>

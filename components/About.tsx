@@ -42,7 +42,7 @@ const About = () => {
 
   return (
     <div>
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mb-32'>
             <div className="lg:col-span-1 flex-center">
                 <div className='rounded-full bg-black-200 w-[250px] lg:w-[100%]'>
                         <Image src="/about-me.png" width={475} height={475} alt={""} className='min-w-[250px] w-[250px] lg:min-w-[100%] lg:w-[100%] rounded-bl-full rounded-br-full'/>
@@ -59,10 +59,16 @@ const About = () => {
                     <p className='text-base lg:text-lg text-slate-300 text-center lg:text-left'>I’m also a full-stack developer, although I do love coding front-end more 
                     (that’s the designer in me). I’m very dedicated and passionate about coding, I love learning new technologies, which is very important in the world of 
                     technology as it is always growing. </p>
+                    <ul className='flex-start gap-8 mt-8'>
+                        <li><Link href={'https://www.linkedin.com/in/cashbryan/'} target="_blank"><Image src="/linkedin.svg" alt="Linkedin" width={50} height={50}/></Link></li>
+                        <li><Link href={'https://github.com/bryan0578'} target="_blank"><Image src="/github.svg" alt="github" width={50} height={50}/></Link></li>
+                        <li><Link href={'https://twitter.com/beardedcash'} target="_blank"><Image src="/twitter.svg" alt="twitter" width={50} height={50}/></Link></li>
+                        <li><Link href={'mailto:bryan@cashbryan.com'} target="_blank"><Image src="/inbox.svg" alt="email" width={50} height={50}/></Link></li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12'>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 mb-32'>
             <div className="lg:col-span-2">
                 <div>      
                     <h2 className='base-bold !font-extrabold mb-4 text-center lg:text-left'>A Little More About Me</h2>
