@@ -19,7 +19,7 @@ const Page = async ({ params }: Props) => {
 
   return (
     <main className="flex-center paddings mx-auto w-full max-w-screen-2xl flex-col">
-      <section className="nav-padding w-full">
+      {/* <section className="nav-padding w-full">
         <h1 className='sm:heading1 heading2 !font-extrabold mb-4 text-center text-white-200'>{resource.title}</h1>
         <div className='flex-center w-full object-cover'>
           <Image src={resource.image} alt="project title" width={800} height={800} className='object-cover'/>
@@ -28,7 +28,7 @@ const Page = async ({ params }: Props) => {
           <p>{resource.description}</p>
           <p>{resource.category}</p>
         </div>
-      </section>
+      </section> */}
       
     </main>
   )
