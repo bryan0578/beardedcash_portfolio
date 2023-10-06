@@ -2,36 +2,44 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 
-import { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 
-const navLinks = [
-    {
-        id: "",
-        title: "home",
-    },
-    {
-        id: "#about",
-        title: "about",
-    },
-    {
-        id: "#projects",
-        title: "projects",
-    },
-    {
-        id: "blog",
-        title: "blog",
-    },
-    {
-        id: "#contact",
-        title: "contact",
-    },
-]
+// const navLinks = [
+//     {
+//         id: "",
+//         title: "home",
+//     },
+//     {
+//         id: "#about",
+//         title: "about",
+//     },
+//     {
+//         id: "#projects",
+//         title: "projects",
+//     },
+//     {
+//         id: "blog",
+//         title: "blog",
+//     },
+//     {
+//         id: "#contact",
+//         title: "contact",
+//     },
+// ]
+interface NavLink {
+  label: string;
+  url: string;
+}
+
+interface NavBarProps {
+  image: string;
+  navLinks: NavLink[];
+}
 
 
-
-const Navbar = () => {
+const Navbar: FC<NavBarProps> = ({ image, navLinks }) => {
     const [active, setActive] = useState("home");
     const [toggle, setToggle] = useState(false);
     
@@ -41,7 +49,7 @@ const Navbar = () => {
             <Link href="/" className="flex-center" onClick={() => {
                     setActive('home');
                   }}>
-               <Image src="/BeardLogoOrange-8.svg" width={45} height={45} alt={''}/>
+               <Image src={image} width={45} height={45} alt={''}/>
                <h1 className='hidden lg:block pl-4 font-semibold'>Beardedcash Designer | Developer</h1>
             </Link>
             <Image
@@ -56,32 +64,31 @@ const Navbar = () => {
                 }}
             />
             <ul className='flex-center gap-x-3 max-md:hidden md:gap-x-10'>
-            {navLinks.map((nav) => (
-                <li key={nav.id}
-                  className={`${
-                    active === nav.title ? "text-gradient_primary" : "text-white-800"
+            {navLinks.map((link, index) => (
+                <li key={index}
+                  className={`${active === link.label ? "text-gradient_primary" : "text-white-800"
                   } !font-bold body-text capitalize hover:text-primary transition ease-in`}
                   onClick={() => {
-                    setActive(nav.title);
+                    setActive(link.label);
                   }}
                   
                 >
-                  <Link href={`/${nav.id}`} scroll={true}>{nav.title}</Link>
+                  <Link className='links' href={`/${link.url}`} scroll={true}>{link.label}</Link>
                 </li>
               ))}
             </ul>
 
             <div className={`${!toggle ? "hidden" : "flex-start"} bg-black-100 p-6 border-l border-t border-b border-black-400 absolute top-20 right-0 my-2 min-w-[50%] z-20 rounded-tl-lg rounded-bl-lg`}>
                 <ul className='flex-start w-full py-4 px-4 flex-col gap-y-10 gap-x-3 md:gap-x-10'>
-                    {navLinks.map((nav) => (
-                        <li key={nav.id}
-                            className={`${active === nav.title ? "text-gradient_primary" : "text-white-800"} !font-bold body-text capitalize hover:text-primary transition ease-in`}
+                    {navLinks.map((link, index) => (
+                        <li key={index}
+                            className={`${active === link.label ? "text-gradient_primary" : "text-white-800"} !font-bold body-text capitalize hover:text-primary transition ease-in`}
                             onClick={() => {
                                 setToggle(!toggle);
-                                setActive(nav.title);
+                                setActive(link.label);
                             }}
                         >
-                            <Link href={`/${nav.id}`} scroll={true}>{nav.title}</Link>
+                            <Link href={`/${link.url}`} scroll={true}>{link.label}</Link>
                         </li>
                     ))}
                 </ul>

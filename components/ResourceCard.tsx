@@ -15,14 +15,14 @@ interface Props {
     title: string;
     description: string;
     image: string;
-    views: number;
     slug: string;
 }
 
-const ResourceCard = ({ id, title, description, image, views, slug }: Props) => {
+const ResourceCard = ({ id, title, description, image, slug }: Props) => {
+    
   return (
     <Card className="w-full max-w-fit border border-slate-700 !bg-black-200 sm:max-w-[356px]">
-        <Link id="project" href={`/resource/${id}`}>
+        <Link id="project" href={`/resource/${slug}`} >
             <CardHeader className="flex-center flex-col gap-2.5 !p-0">
                 <div className="w-full h-[200px]">
                     <Image 
@@ -44,14 +44,14 @@ const ResourceCard = ({ id, title, description, image, views, slug }: Props) => 
                     alt="views"
                 />
                 {views} */}
-                <Link href={`/resource/${id}`} className="flex-center text-gradient_primary body-semibold gap-1.5">
+                <Link href={`/`} className="flex-center text-gradient_primary body-semibold gap-1.5">
                     <div className="flex-center rounded-full bg-slate-900 w-[42px] h-[42px] hover:bg-slate-600 transition ease-in-out duration-200">
                         <Image src="/github.svg" width={28} height={28} alt="arrow" />
                     </div>
                     
                 </Link>
             </div>
-            <Link href={`/resource/${id}`} className="flex-center text-gradient_primary body-semibold gap-1.5">
+            <Link href={`/`} className="flex-center text-gradient_primary body-semibold gap-1.5">
                 View Project
             </Link>
         </CardContent>

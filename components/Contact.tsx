@@ -9,7 +9,7 @@ const Contact = () => {
             <h1 className='sm:heading1 heading2 !font-extrabold mb-4 text-center lg:text-left text-white-200'>Contact Me</h1>
             <p className='mb-4 text-center lg:text-left'>Whether your ready plan a rebellion, buid a digital empire, or just share some Star Wars banter, use the force... or just
             send me a message. I am always free to answer any questions and open for new connections in the force.</p>
-            <label className='text-center lg:text-left'>Email:{'  '} </label>
+            <label className='text-center lg:text-left font-semibold'>Email:{'  '} </label>
             <span>
                 <Link className='hover:text-primary transition ease-in' href={'mailto:bryan@cashbryan.com'} target="_blank">bryan@cashbryan.com</Link>
             </span>

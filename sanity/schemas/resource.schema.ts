@@ -11,23 +11,23 @@ const schema = {
       validation: (Rule: any) => Rule.required()
     },
     {
-      name: 'description',
-      title: 'Description',
+      name: 'shortdescription',
+      title: 'Short Description',
       type: 'string',
       require,
       validation: (Rule: any) => Rule.required()
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'array',
+      of:[{ type: 'block' }],
     },
     {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: { source: 'title' }
-    },
-    {
-      name: 'views',
-      title: 'Views',
-      type: 'number',
-      initialValue: 0
     },
     {
       name: 'poster',
@@ -37,6 +37,23 @@ const schema = {
       options: {
         hotspot: true,
       }
+    },
+    {
+      name: 'technology',
+      title: 'Technology',
+      type: 'array',
+      of: [{type: 'string'}]
+      
+    },
+    {
+      name: 'gitHub',
+      title: 'Github',
+      type: 'string',
+    },
+    {
+      name: 'liveLink',
+      title: 'Live Link',
+      type: 'string',
     },
     {
       name: 'category',
