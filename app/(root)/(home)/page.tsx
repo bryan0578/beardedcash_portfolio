@@ -6,7 +6,7 @@ import Hero from '@/components/Hero';
 import Questions from '@/components/Questions';
 import ResourceCard from '@/components/ResourceCard'
 import SearchForm from '@/components/SearchForm'
-import { getFaqs, getResources, getResourcesPlaylist, getHero, getAbout, getSocials } from '@/sanity/actions'
+import { getFaqs, getResources, getResourcesPlaylist, getHero, getAbout, getSocials, getContact } from '@/sanity/actions'
 import { Poppins } from 'next/font/google';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -27,7 +27,7 @@ interface Props {
 const Page = async ({ searchParams }: Props) => {
   const hero = await getHero();
   const about = await getAbout();
-  const socials = await getSocials();
+  const contact = await getContact();
 
   const resources = await getResources({
     query: searchParams?.query || '',
@@ -46,7 +46,7 @@ const Page = async ({ searchParams }: Props) => {
 
       <section id="about" className="nav-padding w-full">
         <About {...about}/>
-        <h2 className='base-bold !font-extrabold mb-4 text-center'>Fun FAQs About Me</h2>
+        <h3 className='base-bold !font-extrabold mb-4 text-center'>Fun FAQs About Me</h3>
           <div className="w-full text-base lg:text-lg text-slate-300">
               {faqs.map((faq: any) => (
                   <Questions key={faq._id} title={faq.title} answer={faq.answer} />
@@ -57,7 +57,7 @@ const Page = async ({ searchParams }: Props) => {
 
       <section id="projects" className="nav-padding w-full">
         <div className="flex-center relative w-full flex-col rounded-xl text-center">
-          <h1 className="sm:heading1 heading2 text-center text-white">Projects</h1>
+          <h2 className="sm:heading1 heading2 text-center text-white">Projects</h2>
         </div>
         {/* <section className="mt-6 w-full">
           <SearchForm />
@@ -99,7 +99,7 @@ const Page = async ({ searchParams }: Props) => {
       
          {resourcesPlaylist.map((item: any) => (
           <div key={item._id} className="flex-center mt-6 w-full flex-col sm:mt-8">
-            <h1 className="heading3 self-start text-white-800">{item.title}</h1>
+            <h3 className="heading3 self-start text-white-800">{item.title}</h3>
             <div className="mt-8 flex w-full flex-wrap justify-center gap-16 sm:justify-start">
               {item.resources.map((resource: any) => (
                   <ResourceCard 
@@ -115,9 +115,9 @@ const Page = async ({ searchParams }: Props) => {
           </div>
         ))} 
       </section>
-      
+
       <section id="contact" className="nav-padding w-full">
-        <Contact />
+        <Contact {...contact} />
       </section>
       
 

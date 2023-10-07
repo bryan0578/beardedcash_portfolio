@@ -55,7 +55,7 @@ const About: FC<Props> = ({
             </div>
             <div className="flex-center lg:col-span-2">
                 <div>
-                    <h1 className='sm:heading1 heading2 !font-extrabold mb-4 text-center lg:text-left text-white-200'>{header}</h1>
+                    <h2 className='sm:heading1 heading2 !font-extrabold mb-4 text-center lg:text-left text-white-200'>{header}</h2>
                     <p className='text-base lg:text-lg text-slate-300 text-center lg:text-left'>
                         {content}
                     </p>
@@ -74,7 +74,7 @@ const About: FC<Props> = ({
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-8 mt-12 mb-32'>
             <div className="lg:col-span-2">
                 <div>      
-                    <h2 className='base-bold !font-extrabold mb-4 text-center lg:text-left'>{addSubHeader}</h2>
+                    <h3 className='base-bold !font-extrabold mb-4 text-center lg:text-left'>{addSubHeader}</h3>
                     <p className='text-base lg:text-lg text-slate-300 text-center lg:text-left'>
                         {addContent}
                     </p>
@@ -87,7 +87,7 @@ const About: FC<Props> = ({
             <div className="lg:col-span-1">
                 <div className="w-full px-0 md:px-16 pt-12 lg:p-0">
                     <div className='flex flex-col w-full'>
-                        <h2 className='base-bold !font-extrabold mb-4 text-center lg:text-left'>{skillsSubHeader}</h2>
+                        <h3 className='base-bold !font-extrabold mb-4 text-center lg:text-left'>{skillsSubHeader}</h3>
                         <div>
                             {skills.map((skill: any, index)=> (
                                 <ul key={index}>

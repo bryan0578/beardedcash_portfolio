@@ -129,6 +129,27 @@ export const getFaqs = async () => {
     }
 }
 
+export const getContact = async () => {
+    try {
+        const contact = await readClient.fetch(
+            groq`*[_type == "contact"][0]{
+                header,
+                subHeader,
+                content,
+                follow,
+                emailLabel,
+                emailText,
+                contactMailTo,
+                "image": contactImage.asset->url,
+                altTag
+                
+            }`
+        );
+        return contact
+    } catch (error) {
+        console.log(error)
+    }
+}
 export const getResourcesPlaylist = async () => {
     try {
         const resources = await readClient.fetch(

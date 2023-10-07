@@ -16,9 +16,9 @@ const Hero = ({ header, subHeader, content, button, image }: Props) => {
     <div className='flex-center w-full flex-col lg:flex-row rounded-xl text-left mt-[100px] mb-[100px]'> 
       <div className='flex-center lg:flex-start lg:my-auto flex-col w-full text-left mt-12 order-last lg:order-first'>
           <h1 className='sm:heading2 heading3 !font-extrabold mb-4 text-center lg:text-left text-white-200'>{header}</h1>
-          <p className='flex-start text-base lg:text-lg text-slate-300 text-center mb-6'>
+          <h2 className='flex-start text-base lg:text-lg text-slate-300 text-center mb-6'>
             {content}
-          </p>
+          </h2>
           <div className='flex-center lg:flex-start w-full lg:w-[50%]'>
             <Button className='rounded-full px-10'><Link href="/#about">{button}</Link></Button>
           </div>

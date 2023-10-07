@@ -8,8 +8,9 @@ import faqs from './faqs.schema';
 import project from './project.schema';
 import projectPlaylist from './project-playlist.schema';
 import categories from "./categories.schema";
+import contact from "./contact.schema";
 
 
-const schemas = [nav, hero, about, socials, resource, resourcePlaylist, faqs, project, projectPlaylist, categories]
+const schemas = [nav, hero, about, socials, resource, resourcePlaylist, faqs, project, projectPlaylist, categories, contact]
 
 export default schemas;
